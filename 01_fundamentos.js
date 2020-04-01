@@ -301,8 +301,8 @@ console.log(personasAltas)
 
 //Map
 const pasarAlturaACms = persona => ({
-    ...persona,
-    altura: persona.altura * 100
+  ...persona,
+  altura: persona.altura * 100
 })
 var personasCms = personas.map(pasarAlturaACms)
 console.log(personasCms)
@@ -317,4 +317,13 @@ var totalDeLibros = personas.reduce(reducer, 0)
 // }
 // var totalDeLibros = acum;
 
+//Find
+const esGomez = persona => persona.apellido === "Gomez";
+var personaEncontrada = personas.find(esGomez);
+console.log(personaEncontrada)
 
+//Foreach
+personas.forEach(persona => console.log(persona.nombre));
+
+//Some -> a diferencia del filter, devuelve verdader o falso
+var hayPersonasBajas = personas.some(persona => persona.altura <= 1.80);
