@@ -317,6 +317,48 @@ var totalDeLibros = personas.reduce(reducer, 0)
 // }
 // var totalDeLibros = acum;
 
+const person = [
+  { name: 'Jim', color: 'blue', age: 22, },
+  { name: 'Sam', color: 'blue', age: 33, },
+  { name: 'Eddie', color: 'green', age: 77, },
+];
+
+const sumOfAges = person.reduce((sum, currentValue) => {
+  return sum + currentValue.age;
+}, 0);
+
+const groupBy = (array, key) => {
+  // Return the end result
+  return array.reduce((result, currentValue) => {
+
+    /*
+    --- primera forma ---
+    if (result[currentValue[key]]) {
+      result[currentValue[key]].push(currentValue);
+    } else {
+      result[currentValue[key]] = [];
+      result[currentValue[key]].push(currentValue);
+    }
+    */
+
+    /* 
+      --- segunda forma ---
+      let arraySection = (result[currentValue[key]] = result[currentValue[key]] || [])
+      arraySection.push(currentValue);
+    */
+
+    (result[currentValue[key]] = result[currentValue[key]] || []).push(currentValue);
+
+
+    // Return the current iteration `result` value, this will be taken as next iteration `result` value and accumulate
+    return result;
+  }, {}); // empty object is the initial value for result object
+};
+const personGroupedByColor = groupBy(person, 'color');
+console.log(personGroupedByColor);
+
+
+
 //Find
 const esGomez = persona => persona.apellido === "Gomez";
 var personaEncontrada = personas.find(esGomez);
