@@ -1,0 +1,21 @@
+{
+  "name": "asincronismo",
+  "version": "1.0.0",
+  "description": "Asincronismo en JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "callback": "node src/callback/challenge.js",
+    "promises": "node src/promises/challenge.js",
+    "async-await": "node src/async-await/challenge.js"
+  },
+  "keywords": [
+    "callbacks",
+    "promesas",
+    "async/await"
+  ],
+  "author": "Brahua",
+  "license": "MIT",
+  "dependencies": {
+    "xmlhttprequest": "^1.8.0"
+  }
+}
